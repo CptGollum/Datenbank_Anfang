@@ -1,0 +1,12 @@
+cd /Users/leandrowoick/backend_projekt_mac
+source .venv/bin/activate
+uvicorn main:app --reload
+löschen von daten = rm userdaten.db
+
+Wir müssen drei neue Komponenten erstellen:
+
+Ein neues Datenbank-Modell (PostModel).
+
+Ein neues Logik-Modell (Post).
+
+Ein neues Repository (PostRepository) – optional, aber sauberer.

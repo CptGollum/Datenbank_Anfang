@@ -1,0 +1,30 @@
+api haben z.b GET/Hauptressource/ID/Untergeordnete_Ressource
+
+Methode,Zweck (CRUD),Wichtige Eigenschaft
+GET,Read (Lesen),Ruft Daten ab. Muss sicher sein (darf nichts verändern).
+POST,Create (Erstellen),Erzeugt neue Ressourcen.
+PUT,Update (Aktualisieren),Ersetzt eine existierende Ressource vollständig.
+DELETE,Delete (Löschen),Entfernt eine Ressource.
+
+Bestandteile einer FastApi und Zweck
+Bestandteil,Name in FastAPI,Zweck,Wo verwendet?
+Path Parameter,{user_id},Identifiziert die spezifische Ressource.,"GET, PUT, DELETE (in der URL)" ist der Adressat
+Query Parameter,`name: str,None`,Dient zum Filtern oder Sortieren. # ist zum filtern da 
+Request Body,user_data: UserResponse,Enthält die Daten-Nutzlast (das JSON).,"POST, PUT (um Daten zu senden/ändern)" # ist die Fracht
+
+Relationship und Fremdschlüssel
+Konzept,Analogie,Warum es wichtig ist
+Relationship (1-zu-n),"Die Regel: ""Eltern und Kind""","Definiert, welche logische Frage du stellen kannst (""Welche Posts gehören zu diesem User?"")."
+Fremdschlüssel (user_id),Der Verweis (Die Adresse),"Das technische Feld, das es der Datenbank ermöglicht, die richtige Zeile in der Elterntabelle zu finden."
+
+
+Mapped
+Schreibweise,Was es bedeutet,Datenbank-Konstrukt
+Mapped[int],Eine einzelne Datenwertzuordnung.,→ Datenbankspalte (z.B. user_id ist eine Spalte vom Typ Integer).
+"Mapped[List[""PostModel""]]",Eine Zuordnung zu einer Liste von Objekten.,"→ Relationship (keine Spalte, sondern eine Verknüpfung zu einer Liste von Posts)."
+
+Zusammenfassend für dich:
+
+self = Der Kleber. Er sorgt dafür, dass die Daten am richtigen Objekt hängen bleiben.
+
+__init__ = Die Einlasskontrolle. Er legt fest, welche Daten beim Start eines Objekts zwingend vorhanden sein müssen.
